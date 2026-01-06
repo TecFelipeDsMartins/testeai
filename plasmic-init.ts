@@ -1,4 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import ProductCard from "./components/ProductCard";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -22,4 +23,14 @@ export const PLASMIC = initPlasmicLoader({
 // http://localhost:3000/plasmic-host).  See
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
-// PLASMIC.registerComponent(...);
+PLASMIC.registerComponent(ProductCard, {
+  name: "ProductCard",
+  props: {
+    image: "string",
+    title: "string",
+    description: "string",
+    price: "number",
+    buttonText: "string",
+    onButtonClick: "function",
+  },
+});
